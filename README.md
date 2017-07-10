@@ -1,37 +1,76 @@
 # Validador Javascript de cédulas de Panamá / _Javascript validator for the Panamenian id cedula_
+Validates if a string is a valid cedula or it is
 
-Este módulo permite validar
 
-
-# Instalación / _Installation_
+## Instalación / _Installation_
 
     $ npm install cedula-panama
 
-# ¿Cómo se usa? / _Usage_
+## Documentación
 
 El validador es muy simple, tiene una función _validateCedula(cedula)_ que recibe la cédula como parámetro y devuelve un objeto de la forma:
 
 _The validator is pretty simple, it just has a function validateCedula(cedula) that receives a cedula string as parameter and returns an object like: this_
 
-```json
+```
 {
-  isValid: true|false, # booleano que indica si la cadena podría formar parte de una cédula.
-  inputString: cedula, # es el parámetro de entrada
-  isComplete: true|false, # booleano que indica si la cadena es una cédula completa
-  cedula: [1,2,3,4] # Array con los campos de la cédula (provincia, letra, libro, tomo) separados.
+  isValid: true|false,     # booleano que indica si la cadena podría formar parte de una cédula (true).
+                           # true if the string could be a valid cedula, useful while typing.
+                           
+  inputString: cedula,     # es el parámetro de entrada.
+                           # Input value.
+                           
+  isComplete: true|false,  # booleano que indica si la cadena es una cédula completa.
+                           # boolean that tells if it is a complete cedula.
+                           
+  cedula: ["1","2","3","4"] # Array con los campos de la cédula (provincia, letra, libro, tomo) separados.
+                             # null - si isValid == false.
+                            # [undefined, undefined, undefined, undefined] - si isComplete == false.
+                            # [1,2,3,4] - Valores de la cédula si esta es válida y completa (isValid == isComplete == true). 
+
+                            # Array with the separated components of the cedula (province, letters, book, volume).
+                            # null - if isValid == false.
+                            # [undefined, undefined, undefined, undefined] - if isComplete == false.
+                            # ["1","2","3","4"] - Values of the cedula if it is valida and complete (isValid == isComplete == true).
 }
 
-Ejemplo:
+Ejemplos / _Examples_ :
 
+# not valid
+{
+ isValid: false,
+ inputString: '88-BB',
+ isComplete: false,
+ cedula: null
+}
+
+# incomplete, but valid string
+{
+ isValid: true,
+ inputString: '8-123-'
+ isComplete: false,
+ cedula: [undefined, undefined, undefined, undefined]
+}
+
+# complete #1
 {
   isValid: true,
   inputString: '8-123-123',
   isComplete: true,
-  cedula: ["8", "0", "123", "123"]
-
+  cedula: ["8", "", "123", "123"]
 }
+
+# complete #2
+{
+  isValid: true,
+  inputString: 'PE-123-123',
+  isComplete: true,
+  cedula: ["0", "PE", "123", "123"]
+}
+
 ```
 
+# Modo de empleo / _Usage_
 Primero, importa en la cabecera el fichero a _cedula.js_ en la cabecera _head_.
 
 _In order to use it, first include in the head the cedula.js file:_
@@ -41,11 +80,15 @@ _In order to use it, first include in the head the cedula.js file:_
 <script src="../cedula.js"></script>
 ```
 
+Ya puedes usar la función validateCedula(cedula)
+_After that, you can use the function validateCedula(cedula)_
+
 Ejemplo / _Example:_:
 
 ```html
 <html>
 <head>
+<script src="../cedula.js"></script> <!-- set the path to your local copy of cedula.js -->
 <script>
 function validate(cedula) {
   var result = validateCedula(cedula)
@@ -55,7 +98,6 @@ function validate(cedula) {
   document.getElementById('separated').innerHTML= result.cedula != null ? result.cedula.toString() : "null";
 }
 </script>
-<
 </head>
 <body>
   <h1>Validador javascript del formato de la cédula de Panamá</h1>
@@ -74,7 +116,7 @@ function validate(cedula) {
 </html>
 ```
 
-# Patrones aceptados / _Accepted patterns_
+## Patrones aceptados / _Accepted patterns_
 
 * Regular (provincia-libro-tomo). Ej: 1-1234-12345
 * Panameño nacido en el extranjero (PE-libro-tomo). Ej: PE-1234-12345
@@ -99,7 +141,7 @@ Identificación de las provincias
 12. Ngäbe-Buglé
 13. Panamá Oeste
 
-# Cómo puedo portarlo a otros lenguajes
+## Cómo puedo portarlo a otros lenguajes
 
 La validación de la cédula se hace a través de una expresión regular que está en _cedula.js_.
 Esta expresión está pensada para ser usada mientras se escribe la cédula en un campo de texto.
@@ -120,5 +162,32 @@ regular debería ser:
 # Ejecución de pruebas unitarias
 
 El paquete incluye un conjunto de tests que permiten validar el funcionamiento.
+_The package includes unit test that can be run_
 
-En la carpeta del
+```
+    $ npm test
+```
+
+
+## Licencia MIT / _MIT License_
+
+
+Copyright (c) 2017 Juan M. Merlos (@merlos)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
