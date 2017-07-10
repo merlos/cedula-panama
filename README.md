@@ -1,6 +1,7 @@
 # Validador Javascript de cédulas de Panamá / _Javascript validator for the Panamenian id cedula_
-Validates if a string is a valid cedula or it is
+Valida si una cadena texto es una cédula panameña válida. El validador se puede utilizar para validar una cédula completa o para validar el formato  mientras un usuario escribe en un campo de texto.
 
+Validates if a string is a valid Panamenian cedula. The validator can be used either for checking a complete string or for testing if it is valid the format while typing in an input box.
 
 ## Instalación / _Installation_
 
@@ -33,9 +34,11 @@ _The validator is pretty simple, it just has a function validateCedula(cedula) t
                             # [undefined, undefined, undefined, undefined] - if isComplete == false.
                             # ["1","2","3","4"] - Values of the cedula if it is valida and complete (isValid == isComplete == true).
 }
+```
 
 Ejemplos / _Examples_ :
 
+```
 # not valid
 {
  isValid: false,
