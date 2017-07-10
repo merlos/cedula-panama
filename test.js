@@ -34,7 +34,7 @@ describe('cedula.validate', function() {
     assert.equal(c.inputString, '8-1234-12345')
     assert.equal(c.isComplete, true);
     assert.equal(c.cedula[0], '8');
-    assert.equal(c.cedula[1], '0');
+    assert.equal(c.cedula[1], '');
     assert.equal(c.cedula[2], '1234');
     assert.equal(c.cedula[3], '12345');
   });

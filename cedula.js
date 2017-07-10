@@ -48,7 +48,7 @@ function validateCedula(cedula) {
         matched.insert(0,'0');
       }
       if (matched[0].match(/^(1[0123]?|[23456789])?$/)) {
-        matched.insert(1,'0');
+        matched.insert(1,'');
       }
       if (matched[0].match(/^(1[0123]?|[23456789])(AV|PI)$/)) {
         var tmp = matched[0].match(/(\d+)(\w+)/);
