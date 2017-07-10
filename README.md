@@ -1,7 +1,7 @@
 # Validador Javascript de cédulas de Panamá / _Javascript validator for the Panamenian id cedula_
 Valida si una cadena texto es una cédula panameña válida. El validador se puede utilizar para validar una cédula completa o para validar el formato  mientras un usuario escribe en un campo de texto.
 
-Validates if a string is a valid Panamenian cedula. The validator can be used either for checking a complete string or for testing if it is valid the format while typing in an input box.
+Validates if a string is a valid Panamenian cedula. The validator can be used either for checking a complete string or for testing while typing in an input box if it is a valid cedula format.
 
 ## Instalación / _Installation_
 
@@ -144,7 +144,7 @@ Identificación de las provincias
 12. Ngäbe-Buglé
 13. Panamá Oeste
 
-## Cómo puedo portarlo a otros lenguajes
+## Cómo puedo portarlo a otros lenguajes de programacin / Porting to other languages
 
 La validación de la cédula se hace a través de una expresión regular que está en _cedula.js_.
 Esta expresión está pensada para ser usada mientras se escribe la cédula en un campo de texto.
@@ -162,7 +162,7 @@ regular debería ser:
   /^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,5})$/i
 ```
 
-# Ejecución de pruebas unitarias
+## Pruebas unitarias / Tests
 
 El paquete incluye un conjunto de tests que permiten validar el funcionamiento.
 _The package includes unit test that can be run_
@@ -170,7 +170,6 @@ _The package includes unit test that can be run_
 ```
     $ npm test
 ```
-
 
 ## Licencia MIT / _MIT License_
 
