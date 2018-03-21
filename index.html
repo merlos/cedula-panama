@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Validador de cédula panameña. Javascript para validar si una campo tiene una cédula de panamá válida"/>
+  <meta name="keywords" content="validador, cedula panama, validacion, input, script validar cedula"/>
+  <title>Validar cédula Panama con Javascript / Validate Panamenian cedula</title>
+<script src="cedula.js"></script>
+<style media="screen">
+  body {padding-left:20px; font-size: 140%; font-family:Helvetica}
+  input {padding:10px; font-size: 140%; font-family:Helvetica}
+</style>
+</head>
+<body>
+  <h1>Validador javascript del formato de la cédula de Panamá</h1>
+
+  <p>Ingresa un número de cédula panameña:</p>
+  <script>
+  function validate(cedula) {
+    var result = validateCedula(cedula)
+    document.getElementById('isValid').innerHTML= result.isValid;
+    document.getElementById('inputString').innerHTML= result.inputString;
+    document.getElementById('isComplete').innerHTML= result.isComplete;
+    document.getElementById('separated').innerHTML= result.cedula != null ? result.cedula.toString() : "null";
+  }
+  </script>
+  <input type="text" id="cedula" onkeyup="validate(this.value)" autofocus placeholder="Ej: 8-123-456">
+  <p>
+    <strong>Result:</strong>
+    <br>cedula.isValid = <span id="isValid"></span>
+    <br>cedula.inputString = <span id="inputString"></span>
+    <br>cedula.isComplete = <span id="isComplete"></span>
+    <br>cedula.separated = <span id="separated"></span>
+  </p>
+
+
+  <h3>Patrones aceptados</h3>
+
+  <ul>
+    <li>Regular: 1-1234-12345</li>
+    <li>Panameño nacido en el extranjero: PE-1234-12345</li>
+    <li>Extranjero con cédula: E-1234-12345
+    <li>Naturalizado: N-1234-1234</li>
+    <li>Panameños nacidos antes de la vigencia: 1AV-1234-12345</li>
+    <li>Población indigena: 1PI-1234-12345
+</ul>
+
+
+<h2><a href="http://github.com/merlos/cedula-panama">Descarga e instrucciones de uso</a></h2>
+
+
+<p>Creado por <a href="https://twitter.com/merlos">@merlos</a>
+
+
+</body>
+</html>
