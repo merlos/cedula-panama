@@ -124,7 +124,7 @@ function validate(cedula) {
 ## Patrones aceptados / _Accepted patterns_
 
 * Regular (provincia-libro-tomo). Ej: 1-1234-12345
-* Panameño nacido en el extranjero (PE-libro-tomo). Ej: PE-1234-12345
+* Panameño nacido en el extranjero (PE-libro-tomo). Ej: PE-1234-123456
 * Extranjero con cédula (E-libro-tomo). Ej: E-1234-12345
 * Naturalizado (N-libro-tomo). Ej: N-1234-12345
 * Panameños nacidos antes de la vigencia (provinciaAV-libro-tomo). Ej: 1AV-1234-12345
@@ -154,14 +154,14 @@ Esta expresión está pensada para ser usada mientras se escribe la cédula en u
 Esta es la expresión regular completa:
 
 ```
-/^P$|^(?:PE|E|N|[23456789]|[23456789](?:A|P)?|1[0123]?|1[0123]?(?:A|P)?)$|^(?:PE|E|N|[23456789]|[23456789](?:AV|PI)?|1[0123]?|1[0123]?(?:AV|PI)?)-?$|^(?:PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(?:\d{1,4})-?$|^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,5})$/i
+/^P$|^(?:PE|E|N|[23456789]|[23456789](?:A|P)?|1[0123]?|1[0123]?(?:A|P)?)$|^(?:PE|E|N|[23456789]|[23456789](?:AV|PI)?|1[0123]?|1[0123]?(?:AV|PI)?)-?$|^(?:PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(?:\d{1,4})-?$|^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,6})$/i
 ```
 
 Si lo que quieres es validar si una cadena tiene el formato válido de una cédula, la expresión
 regular debería ser:
 
 ```
-  /^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,5})$/i
+  /^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,6})$/i
 ```
 
 ## Pruebas unitarias / Tests
@@ -173,7 +173,8 @@ _The package includes unit test that can be run_
     $ npm test
 ```
 
-## Licencia MIT / _MIT License_
+
+## Licencia MIT / _MIT License_
 
 
 Copyright (c) 2017 Juan M. Merlos (@merlos)
