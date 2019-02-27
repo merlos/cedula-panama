@@ -1,6 +1,6 @@
 {
   "name": "cedula-panama",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple validator of the Panamenian id (cedula)",
   "main": "cedula.js",
   "directories": {
