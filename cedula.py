@@ -42,7 +42,7 @@ from re import match
 ONLY_FIRST = '^(?:PE|E|N|[23456789]|[23456789](?:A|P)?|1[0123]?|1[0123]?(?:A|P)?)$'
 FIRST_AND_BOOK = '^(?:PE|E|N|[23456789]|[23456789](?:AV|PI)?|1[0123]?|1[0123]?(?:AV|PI)?)-?$'
 BOOK_AND_TOME = '^(?:PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(?:\d{1,4})-?$'
-FULL_ID = '^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,5})$'
+FULL_ID = '^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,6})$'
 
 FULL_VALID = '^P$|{}|{}|{}|{}'.format(ONLY_FIRST, FIRST_AND_BOOK, BOOK_AND_TOME, FULL_ID)
 ONLY_VALID_ID = FULL_ID
@@ -57,7 +57,7 @@ def validate(id):
     Accepted patterns:
     - Regular (provincia-libro-tomo). Ej: 1-1234-12345
     - Panameño nacido en el extranjero (PE-libro-tomo). Ej: PE-1234-12345
-    - Extranjero con cédula (E-libro-tomo). Ej: E-1234-12345
+    - Extranjero con cédula (E-libro-tomo). Ej: E-1234-123456
     - Naturalizado (N-libro-tomo). Ej: N-1234-12345
     - Panameños nacidos antes de la vigencia (provinciaAV-libro-tomo). Ej: 1AV-1234-12345
     - Población indigena (provinciaPI-libro-tomo). Ej: 1PI-1234-12345
