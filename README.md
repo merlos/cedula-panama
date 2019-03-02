@@ -1,4 +1,4 @@
-# Validador de cédulas de Panamá / validator for the Panamenian id cedula_
+# Validador de cédula de Panamá / Validator for the Panamenian id cedula_
 Valida si una cadena texto es una cédula panameña válida. El validador se puede utilizar para validar una cédula completa o para validar el formato  mientras un usuario escribe en un campo de texto.
 
 ## [VER DEMO](https://www.merlos.org/cedula-panama/)
@@ -209,15 +209,17 @@ print(validate_id('4-564-2343'))
 # }
 ```
 
+Ejecuta:
+
 ```
  $ python3 example.py
 ```
 
 Agradecimientos / _Acknowledgements_
 
-* Demóstenes García [@demogar](http://github.com/demogar)
-* Christhoval Barba [@christhoval06](http://github.com/christhoval06)
-* ()@jartaud
+* Demóstenes García [@demogar](https://github.com/demogar)
+* Christhoval Barba [@christhoval06](https://github.com/christhoval06)
+* [@jartaud](http://github.com/jartaud)
 
 
 ## Licencia MIT / _MIT License_
