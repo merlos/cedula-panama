@@ -1,9 +1,18 @@
-# Validador Javascript de cédulas de Panamá / _Javascript validator for the Panamenian id cedula_
+# Validador de cédulas de Panamá / validator for the Panamenian id cedula_
 Valida si una cadena texto es una cédula panameña válida. El validador se puede utilizar para validar una cédula completa o para validar el formato  mientras un usuario escribe en un campo de texto.
 
-## [VER DEMO](http://www.merlos.org/cedula-panama/)
+## [VER DEMO](https://www.merlos.org/cedula-panama/)
+
+Disponible en los siguientes lenguajes de programación en este repositorio:
+- Javascript (vanilla creado por [@merlos](https://github.com/merlos))
+- Python (Ported by Christhoval Barba [@christhoval06](https://github.com/christhoval06))
+
+En otro repositorio:
+- Angular:  https://github.com/swordf1zh/ng-cedula-panama
 
 Validates if a string is a valid Panamenian cedula. The validator can be used either for checking a complete string or for testing while typing in an input box if it is a valid cedula format.
+
+# Javascript
 
 ## Instalación / _Installation_
 
@@ -19,17 +28,17 @@ _The validator is pretty simple, it just has a function validateCedula(cedula) t
 {
   isValid: true|false,     # booleano que indica si la cadena podría formar parte de una cédula (true).
                            # true if the string could be a valid cedula, useful while typing.
-                           
+
   inputString: cedula,     # es el parámetro de entrada.
                            # Input value.
-                           
+
   isComplete: true|false,  # booleano que indica si la cadena es una cédula completa.
                            # boolean that tells if it is a complete cedula.
-                           
+
   cedula: ["1","2","3","4"] # Array con los campos de la cédula (provincia, letra, libro, tomo) separados.
                              # null - si isValid == false.
                             # [undefined, undefined, undefined, undefined] - si isComplete == false.
-                            # [1,2,3,4] - Valores de la cédula si esta es válida y completa (isValid == isComplete == true). 
+                            # [1,2,3,4] - Valores de la cédula si esta es válida y completa (isValid == isComplete == true).
 
                             # Array with the separated components of the cedula (province, letters, book, volume).
                             # null - if isValid == false.
@@ -146,6 +155,16 @@ Identificación de las provincias
 12. Ngäbe-Buglé
 13. Panamá Oeste
 
+## Pruebas unitarias / Tests
+
+El paquete incluye un conjunto de tests que permiten validar el funcionamiento.
+_The package includes unit test that can be run_
+
+```
+    $ npm test
+```
+
+
 ## Cómo puedo portarlo a otros lenguajes de programacin / Porting to other languages
 
 La validación de la cédula se hace a través de una expresión regular que está en _cedula.js_.
@@ -164,18 +183,44 @@ regular debería ser:
   /^(PE|E|N|[23456789](?:AV|PI)?|1[0123]?(?:AV|PI)?)-(\d{1,4})-(\d{1,6})$/i
 ```
 
-## Pruebas unitarias / Tests
+¡Hey! Si lo portas a otro lenguage puedes hacer un push request a este repo (si quieres que se distribuya aquí) o si lo distribuyes en otro déjanos un issue para que lo enlacemos desde aquí.
 
-El paquete incluye un conjunto de tests que permiten validar el funcionamiento.
-_The package includes unit test that can be run_
+# Python
+
+Hay un ejemplo en `example.py`.
+
+An example is provided in `example.py`.
+
+
+```python
+# example.py
+from cedula import validate as validate_id
+
+# validate_id(cedula_as_a_string)
+print(validate_id('4-564-2343'))
+
+# output
+# {
+#   'is_valid': True,
+#   'input': '4-564-2343',
+#   'is_complete': True,
+#   'id': ['', '4', '564', '2343'],
+#   'unified': '004056402343'
+# }
+```
 
 ```
-    $ npm test
+ $ python3 example.py
 ```
+
+Agradecimientos / _Acknowledgements_
+
+* Demóstenes García [@demogar](http://github.com/demogar)
+* Christhoval Barba [@christhoval06](http://github.com/christhoval06)
+* ()@jartaud
 
 
 ## Licencia MIT / _MIT License_
-
 
 Copyright (c) 2017 Juan M. Merlos (@merlos)
 
