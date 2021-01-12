@@ -165,7 +165,7 @@ _The package includes unit test that can be run_
 ```
 
 
-## Cómo puedo portarlo a otros lenguajes de programacin / Porting to other languages
+## Cómo puedo portarlo a otros lenguajes de programación / Porting to other languages
 
 La validación de la cédula se hace a través de una expresión regular que está en _cedula.js_.
 Esta expresión está pensada para ser usada mientras se escribe la cédula en un campo de texto.
